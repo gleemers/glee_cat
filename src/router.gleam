@@ -16,7 +16,7 @@ pub fn handle_request(request: Request) -> Response {
     ["cats"] -> cats()
 
     // `/cat/random` - returns a random cat ID
-    ["cat", "random"] -> random_cat(request)
+    ["cats", "random"] -> random_cat(request)
 
     // `/cat/:id` - returns a cat image of the given ID
     ["cats", id] -> show_cat(id)
