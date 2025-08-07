@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #1a0d2e, #2d1b69, #6a4c93, #8b5cf6);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #e2e2e2;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.floating-orbs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,246,0.4), rgba(168,85,247,0.2), transparent);
+  filter: blur(3px);
+  animation: float 20s infinite linear;
+}
+
+.orb:nth-child(1) {
+  width: 120px;
+  height: 120px;
+  top: 10%;
+  left: 5%;
+  animation-duration: 25s;
+  animation-delay: 0s;
+}
+
+.orb:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  top: 60%;
+  right: 10%;
+  animation-duration: 30s;
+  animation-delay: -5s;
+}
+
+.orb:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  bottom: 25%;
+  left: 15%;
+  animation-duration: 35s;
+  animation-delay: -10s;
+}
+
+.orb:nth-child(4) {
+  width: 60px;
+  height: 60px;
+  top: 30%;
+  right: 25%;
+  animation-duration: 28s;
+  animation-delay: -15s;
+}
+
+.orb:nth-child(5) {
+  width: 140px;
+  height: 140px;
+  bottom: 15%;
+  right: 5%;
+  animation-duration: 40s;
+  animation-delay: -20s;
+}
+
+.orb:nth-child(6) {
+  width: 50px;
+  height: 50px;
+  top: 75%;
+  left: 40%;
+  animation-duration: 22s;
+  animation-delay: -8s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+  33% {
+    transform: translateY(-30px) translateX(20px) rotate(120deg);
+    opacity: 1;
+  }
+  66% {
+    transform: translateY(20px) translateX(-15px) rotate(240deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(360deg);
+    opacity: 0.7;
+  }
+}
+
+.sparkles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(168,85,247,0.8);
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+
+.sparkle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+.sparkle:nth-child(2) { top: 40%; left: 80%; animation-delay: 0.5s; }
+.sparkle:nth-child(3) { top: 70%; left: 30%; animation-delay: 1s; }
+.sparkle:nth-child(4) { top: 15%; left: 70%; animation-delay: 1.5s; }
+.sparkle:nth-child(5) { top: 85%; left: 60%; animation-delay: 2s; }
+.sparkle:nth-child(6) { top: 30%; left: 10%; animation-delay: 2.5s; }
+.sparkle:nth-child(7) { top: 60%; left: 90%; animation-delay: 0.3s; }
+.sparkle:nth-child(8) { top: 80%; left: 15%; animation-delay: 1.8s; }
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  background: rgba(139,92,246,0.1);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(168,85,247,0.3);
+  box-shadow: 0 20px 40px rgba(139,92,246,0.2);
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(168,85,247,0.8), 0 0 40px rgba(139,92,246,0.6);
+  margin-bottom: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+h1.glow-text {
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #a855f7, #c084fc, #e879f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+h2.glow-text {
+  font-size: 1.8rem;
+  color: #c084fc;
+}
+
+@keyframes textGlow {
+  from {
+    filter: brightness(1);
+  }
+  to {
+    filter: brightness(1.3);
+  }
+}
+
+.glow-button {
+  position: relative;
+  background: linear-gradient(45deg, #8b5cf6, #a855f7);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(139,92,246,0.4);
+  margin-bottom: 40px;
+}
+
+.glow-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(139,92,246,0.6);
+}
+
+.glow-button span {
+  position: relative;
+  z-index: 2;
+}
+
+.button-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.glow-button:hover .button-glow {
+  left: 100%;
+}
+
+.cats-section {
+  margin-top: 30px;
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 20px 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cat-item {
+  position: relative;
+}
+
+.cat-image-container {
+  position: relative;
+  display: inline-block;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cat-image-container:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.cat-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid rgba(168,85,247,0.5);
+  transition: all 0.3s ease;
+}
+
+.cat-image:hover {
+  border-color: rgba(168,85,247,1);
+}
+
+.image-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(139,92,246,0.3), rgba(168,85,247,0.3));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 15px;
+}
+
+.cat-image-container:hover .image-glow {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  h1.glow-text {
+    font-size: 2rem;
+  }
+  
+  .cat-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+  }
+  
+  .cat-image {
+    width: 80px;
+    height: 80px;
+  }
+}

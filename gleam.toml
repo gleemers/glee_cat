@@ -1,4 +1,4 @@
-name = "cat_api"
+name = "nekomimi"
 version = "1.0.0"
 description = "A cat photo API written in Gleam"
 

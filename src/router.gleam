@@ -19,7 +19,7 @@ pub fn handle_request(request: Request) -> Response {
     ["cat", "random"] -> random_cat(request)
 
     // `/cat/:id` - returns a cat image of the given ID
-    ["cat", id] -> show_cat(id)
+    ["cats", id] -> show_cat(id)
 
     _ -> wisp.not_found()
   }
