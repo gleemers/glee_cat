@@ -10,6 +10,7 @@ pub fn handle_request(request: Request) -> Response {
   use <- wisp.serve_static(request, under: "/", from: "public/")
 
   case wisp.path_segments(request) {
+    // `/` - returns homepage
     [] -> home_page()
 
     // `/cats` - returns a list of all cat IDs
@@ -21,7 +22,7 @@ pub fn handle_request(request: Request) -> Response {
     // `/cat/:id` - returns a cat image of the given ID
     ["cats", id] -> show_cat(id)
 
-    _ -> wisp.not_found()
+    _ -> random_cat(request)
   }
 }
 
@@ -32,7 +33,9 @@ fn home_page() -> Response {
 fn get_cat_files() -> List(String) {
   case simplifile.get_files("public/cats") {
     Ok(files) -> {
-      list.filter(files, fn(f) { string.ends_with(f, ".png") })
+      list.filter(files, fn(f) {
+        string.ends_with(f, ".png") || string.ends_with(f, ".jpg")
+      })
     }
     Error(_) -> []
   }
